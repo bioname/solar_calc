@@ -13,7 +13,6 @@
 
 // function can get few params, required power, sun hours, and a capacity for 1 battery.
 int main(int argc, char *argv[]){
-//  energyConsumption::requiredPower = 0;
 								int requiredPower = 0;
 								int sunHours = 0;
 								unsigned int batteryCapacity = 0;
@@ -32,11 +31,13 @@ int main(int argc, char *argv[]){
 								}
 
 								solarplant *myInstance;
-								myInstance = new solarplant(requiredPower,sunHours);
+								myInstance = new solarplant(requiredPower,sunHours,battcap);
 
-								std::cout << "How many batteries with capacity " << battcap << " Wh required: " << myInstance->getLABatteriesCount(battcap) << std::endl;
+								std::cout << "How many batteries with capacity " << battcap << " Wh required: " << myInstance->getLABatteriesCount() << std::endl;
 								std::cout << "How many 250-Watt solar panels are required: " << myInstance->getSolarPanelsCount() << std::endl;
 								std::cout << "how many area on the roof should be available : " << myInstance->getSolarPanelsAreaSize() << std::endl;
+
+								std::cout << "Total price is : " << myInstance->getTotalPrice() << std::endl;
 
 								return 0;
 }
