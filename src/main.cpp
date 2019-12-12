@@ -21,7 +21,7 @@ int main(int argc, char * argv[])
     unsigned int solarPanelReqArea = 0;
     unsigned int battcap = 0;
 
-    if (argc != 3) {
+    if (argc != 4) {
         requiredPower = inputValue("Please enter the energy consumption per day (in Wh): ");
         sunHours      = inputValue("Please enter the average sun hours per day for your location: ");
         std::cout << "And the last question )" << std::endl;
