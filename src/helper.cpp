@@ -11,17 +11,19 @@
 
 // simple function for getting unsigned integer input from user and show a message text before
 
-unsigned int inputValue( std::string message ){
-								int result = 0;
-								do{
-																std::cout << message;
-																if ( !( std::cin >> result) ) {
-																								std::cin.clear();
-																								std::cin.ignore(std::numeric_limits<unsigned int>::max(), '\n');
+unsigned int inputValue(std::string message)
+{
+    int result = 0;
 
-																								std::cerr << "Please enter positive number. Try Again."<< std::endl;
-																}
-																std::cout << "You enter "<< result << std::endl;
-								}while( result<=0 );
-								return (unsigned)result;
+    do{
+        std::cout << message;
+        if (!( std::cin >> result) ) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<unsigned int>::max(), '\n');
+
+            std::cerr << "Please enter positive number. Try Again." << std::endl;
+        }
+        std::cout << "You enter " << result << std::endl;
+    }while( result <= 0 );
+    return (unsigned) result;
 }

@@ -8,63 +8,75 @@
 #define _SOLAR_CALC_
 
 // set some default values just to simplify
-#define BATTERY_VOLTAGE    12
-#define SOLAR_PANEL_POWER  250
-#define SOLAR_PANEL_SQUARE 2
+#define BATTERY_VOLTAGE          12
+#define SOLAR_PANEL_POWER        250
+#define SOLAR_PANEL_SQUARE       2
 
-#define SOLAR_PANEL_PRICE 500
-#define BATTERY_PRICE 300
+#define SOLAR_PANEL_PRICE        500
+#define BATTERY_PRICE            300
 #define SOLAR_PANEL_INSTALLATION 1000
 
 
-//----------------------------------------
+// ----------------------------------------
 class energyConsumption {
 public:
-static unsigned int requiredPower;
-energyConsumption(){
-};
-energyConsumption( unsigned int _requiredPower );
-static void setEnergeConsumption( unsigned int _requiredPower );
-static unsigned int getEnergeConsumption();
+    static unsigned int requiredPower;
+    energyConsumption()
+    { };
+    energyConsumption(unsigned int _requiredPower);
+    static void
+    setEnergeConsumption(unsigned int _requiredPower);
+    static unsigned int
+    getEnergeConsumption();
 };
 
-//----------------------------------------
+// ----------------------------------------
 class battery : public energyConsumption {
 private:
-unsigned int batteryFullCapacity;
-unsigned int oneBatteryCapacity;
+    unsigned int batteryFullCapacity;
+    unsigned int oneBatteryCapacity;
 public:
-battery( unsigned int _requiredPower, unsigned int _oneBatteryCapacity );
-unsigned int getLABatteriesCount();
+    battery(unsigned int _requiredPower, unsigned int _oneBatteryCapacity);
+    unsigned int
+    getLABatteriesCount();
 };
 
-//----------------------------------------
+// ----------------------------------------
 class solarPanel : public energyConsumption {
 private:
-unsigned int sunHours;
+    unsigned int sunHours;
 public:
-solarPanel( unsigned int _sunHours );
-unsigned int getSolarPanelsCount();
-unsigned int getSolarPanelsAreaSize();
+    solarPanel(unsigned int _sunHours);
+    unsigned int
+    getSolarPanelsCount();
+    unsigned int
+    getSolarPanelsAreaSize();
 };
 
-//----------------------------------------
+// ----------------------------------------
 class solarplant {
 private:
-solarPanel *sp;
-battery    *b;
+    solarPanel * sp;
+    battery * b;
 public:
-solarplant( unsigned int _requiredPower, unsigned int _sunHours, unsigned int _oneBatteryCapacity );
-unsigned int getSolarPanelsCount(){
-								return sp->getSolarPanelsCount();
-}
-unsigned int getSolarPanelsAreaSize(){
-								return sp->getSolarPanelsAreaSize();
-}
-unsigned int getLABatteriesCount(){
-								return b->getLABatteriesCount();
-}
-unsigned int getTotalPrice();
+    solarplant(unsigned int _requiredPower, unsigned int _sunHours, unsigned int _oneBatteryCapacity);
+    unsigned int getSolarPanelsCount()
+    {
+        return sp->getSolarPanelsCount();
+    }
+
+    unsigned int getSolarPanelsAreaSize()
+    {
+        return sp->getSolarPanelsAreaSize();
+    }
+
+    unsigned int getLABatteriesCount()
+    {
+        return b->getLABatteriesCount();
+    }
+
+    unsigned int
+    getTotalPrice();
 };
 
-#endif
+#endif // ifndef _SOLAR_CALC_

@@ -11,6 +11,6 @@
 #include <string>
 
 // simple function for getting unsigned integer input from user and show a message text before
-unsigned int inputValue( std::string message );
+unsigned int inputValue(std::string message);
 
 #endif
